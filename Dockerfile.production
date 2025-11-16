@@ -12,10 +12,9 @@ RUN apt-get update && \
 
 # Install poetry packages
 WORKDIR /var/myapp
-VOLUME /var/myapp
+COPY . /var/myapp
 
-COPY pyproject.toml poetry.lock ./
-RUN poetry install --no-root
+RUN poetry install --without dev
 
 # Settings
 ENV PYDEVD_DISABLE_FILE_VALIDATION=1
