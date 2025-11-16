@@ -34,6 +34,18 @@ if __name__ == "__main__":
         **cron_crawl_at_yesterday,
     )
 
+    # レース直前クロールジョブ登録ジョブをスケジュール登録
+    cron_add_crawl_at_race_jobs = json.loads(os.environ.get("CRON_ADD_CRAWL_AT_RACE_JOBS"))
+    L.debug(f"{cron_add_crawl_at_race_jobs=}")
+
+    scheduler.add_job(
+        jobs.add_crawl_race_jobs,
+        "cron",
+        misfire_grace_time=None,
+        args=[scheduler],
+        **cron_add_crawl_at_race_jobs,
+    )
+
     # スケジューラーを開始
     try:
         L.info("Starting scheduler")
