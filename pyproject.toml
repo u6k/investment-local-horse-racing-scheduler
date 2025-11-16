@@ -1,6 +1,6 @@
 [project]
 name = "local-horse-racing-scheduler"
-version = "0.1.0-dev"
+version = "1.0.0"
 description = "地方競馬自動投票システムをスケジュール制御する"
 authors = [
     {name = "u6k",email = "u6k.apps@gmail.com"}
