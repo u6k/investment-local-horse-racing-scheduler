@@ -1,0 +1,44 @@
+[project]
+name = "local-horse-racing-scheduler"
+version = "0.1.0-dev"
+description = "地方競馬自動投票システムをスケジュール制御する"
+authors = [
+    {name = "u6k",email = "u6k.apps@gmail.com"}
+]
+license = {text = "MIT License"}
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "apscheduler (>=3.11.1,<4.0.0)",
+    "pika (>=1.3.2,<2.0.0)",
+    "boto3 (>=1.40.74,<2.0.0)"
+]
+
+[dependency-groups]
+dev = [
+    "isort (>=7.0.0,<8.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "flake8-pyproject (>=1.2.3,<2.0.0)",
+    "pytest (>=9.0.1,<10.0.0)",
+    "autopep8 (>=2.3.2,<3.0.0)",
+    "poethepoet (>=0.37.0,<0.38.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.autopep8]
+max_line_length = 1000
+
+[tool.flake8]
+max-line-length = 1000
+
+[tool.isort]
+profile = "black"
+line_length = 1000
+
+[tool.poe.tasks]
+lint = "flake8 ./local_horse_racing_scheduler/"
+fix = [{cmd="autopep8 -ivr ./local_horse_racing_scheduler/"}, {cmd="isort ./local_horse_racing_scheduler/"}]
