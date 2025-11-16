@@ -10,3 +10,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - [#10612: 簡易なスケジューラーを作成する](https://redmine.u6k.me/issues/10612)
+- [#10497: 前日・当日の全レースをクロールする](https://redmine.u6k.me/issues/10497)
